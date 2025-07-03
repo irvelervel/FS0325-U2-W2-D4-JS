@@ -225,3 +225,116 @@ array.forEach((character, i) => {
 })
 
 // FUNZIONI
+const myFun = function () {
+  console.log('CIAO, SONO UNA FUNZIONE')
+}
+
+myFun()
+
+// una funzione è un modo per "ingabbiare" una serie di istruzioni in un blocco
+// dotato di "nome" (associato ad una variabile)
+// le funzioni vanno prima "DICHIARATE" (definite) e poi "ESEGUITE" (invocate)
+// di solito una funzione racchiude una serie di istruzioni che servono a
+// raggiungere un mini-obiettivo
+
+// facciamo una funzione che calcola l'area di un rettangolo 3*5
+const area = function () {
+  const l1 = 3
+  const l2 = 5
+  const result = l1 * l2 // 15
+  const span = document.getElementById('area-content')
+  span.innerText = result
+}
+
+area()
+
+const area2 = function () {
+  const l1 = 6
+  const l2 = 8
+  const result = l1 * l2 // 48
+  const span = document.getElementById('area-content')
+  span.innerText = result
+}
+
+area2()
+
+const genericArea = function (l1, l2) {
+  //   const l1 = 6
+  //   const l2 = 8
+  const result = l1 * l2 // 48
+  const span = document.getElementById('area-content')
+  span.innerText = result
+}
+
+genericArea(2, 3)
+genericArea(9, 2)
+genericArea(34, 67)
+// i valori che sto passando alla funzione vengono chiamati ARGOMENTI
+// i "nomignoli" con cui la funzione li riceve e li identifica nel suo svolgimento
+// vengono chiamati PARAMETRI
+
+// i PARAMETRI servono a rendere una funzione più "generica", VERSATILE, in modo
+// da potersi adattare a più circostanze (ed evitare copincolla, duplicazioni
+// inutili nel momento in cui abbiamo necessità di una variante di quella funzione)
+
+// VALORE DI RITORNO
+// una funzione può scegliere di RITORNARE un valore al termine della sua esecuzione
+// per poter far "fuoriuscire" quel risultato fuori dalle mura della funzione che
+// lo ha calcolato. In questo modo può venire utilizzato successivamente nel codice
+// (magari come dato in ingresso per un'altra operazione) e genericamente si riesce
+// a "isolare" meglio i blocchi di istruzioni e li si rende quanto più indipendenti
+// possibili
+
+const throwDice = function () {
+  const result = Math.ceil(Math.random() * 6) // da 1 a 6
+  return result
+}
+
+const putNumberOnPage = function (n) {
+  document.getElementById('number').innerText = n
+}
+
+const lancio = throwDice() // lancio vale 1 oppure 2 oppure 3 oppure 4 oppure 5 oppure 6
+putNumberOnPage(lancio)
+
+// in questo modo non sono costretto a mettere anche l'istruzione per stampare
+// il valore nella pagina all'interno della stessa funzione throwDice, ma posso
+// separare le cose e ho reso il mio codice molto più modulare
+
+// DIVERSI MODI DI SCRIVERE UNA FUNZIONE IN JS
+// FUNZIONE FRECCIA
+const funFreccia = () => {
+  console.log('sono una bellissima freccia')
+}
+
+funFreccia()
+
+// due sono sostanzialmente le differenze tra le funzioni freccia e le funzioni "classiche"
+// 1)
+const sum = function (n1, n2) {
+  return n1 + n2
+}
+
+const sumFreccia = (n1, n2) => n1 + n2 // il return è IMPLICITO
+// in una funzione freccia, se il risultato va ritornato e la funzione freccia è
+// "monoriga", si possono omettere graffe + return
+
+// -- ATTENZIONE -- se togliete es. solo il return, NON RITORNA UN VALORE
+// const sumFrecciaSbagliata = (n1, n2) => {
+//   n1 + n2
+// }
+
+// 2) le funzioni freccia hanno un comportamento diverso per alcune keywords
+// in particolare con la parola "this"
+const normale = function () {
+  console.log(this)
+}
+
+const freccia = () => {
+  console.log(this)
+}
+
+// le funzioni freccia NON possiedono un "proprio" this
+
+normale()
+freccia()
