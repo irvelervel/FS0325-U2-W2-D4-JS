@@ -175,3 +175,53 @@ number = number - 1
 if (number) {
   // NON ENTRO QUI DENTRO! perchè number vale 0
 }
+
+// C I C L I
+// un ciclo è una struttura in grado di ripetere l'esecuzione di un blocco di istruzioni
+
+// WHILE
+// si riesegue un'operazione fino a che non si raggiunge il risultato desiderato
+// es. fare 6 con un dado
+
+let lancioDado = 0
+
+while (lancioDado !== 6) {
+  // Math.random() * 6 // 0.000001 - 0.9999999 -> 0.000006 - 5.9999999
+  lancioDado = Math.ceil(Math.random() * 6) // 0.000006 - 5.9999999 -> 1 - 6
+  console.log(lancioDado)
+}
+
+console.log('sono uscito dal ciclo while!')
+
+// FOR
+// esegue un blocco di istruzioni un numero assolutamente PRECISO e PREDETERMINATO
+// di volte
+
+for (let i = 0; i < 10; i++) {
+  // questo blocco si ripeterà 10 volte
+  // la prima volta i vale 0
+  // la seconda volta i vale 1
+  // la terza volta i vale 2
+  // la quarta volta i vale 3
+  // ...
+  // la decima volta i vale 9
+  console.log(i)
+}
+
+// è un alleato perfetto per esplorare gli array in JS
+// perchè se la i parte da 0 e arriva fino a raggiungere (ma senza mai toccare)
+// la lunghezza dell'array, ecco che la i diventa SEMPRE un indice valido per gli
+// elementi di quell'array, dal primo all'ultimo!
+const array = ['Mario', 'Zelda', 'Link', 'Jill', 'Astro']
+
+for (let i = 0; i < array.length; i++) {
+  // la i è 0, 1, 2 etc.
+  // array[i] è 'Mario', 'Zelda, 'Link' etc.
+  console.log(array[i])
+}
+
+array.forEach((character, i) => {
+  console.log('CIAO', character, i)
+})
+
+// FUNZIONI
